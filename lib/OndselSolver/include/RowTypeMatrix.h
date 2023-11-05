@@ -9,7 +9,7 @@
 #pragma once
 
 #include "Array.h"
-#include "FullRow.h"
+#include "FullRow.ref.h"
 
 namespace MbD {
 
@@ -21,16 +21,15 @@ namespace MbD {
 		RowTypeMatrix(int m) : Array<T>(m) {}
 		RowTypeMatrix(std::initializer_list<T> list) : Array<T>{ list } {}
 		void copyFrom(std::shared_ptr<RowTypeMatrix<T>> x);
-		virtual void zeroSelf() = 0;
+		virtual void zeroSelf() override = 0;
 		//double maxMagnitude() override;
 		int numberOfElements() override;
-
-		int nrow() {
-			return (int) this->size();
-		}
-		int ncol() {
-			return this->at(0)->numberOfElements();
-		}
+        int nrow() {
+            return (int) this->size();
+        }
+        int ncol() {
+            return this->at(0)->numberOfElements();
+        }
 	};
 
 	template<typename T>
@@ -43,10 +42,10 @@ namespace MbD {
 	//template<typename T>
 	//inline double RowTypeMatrix<T>::maxMagnitude()
 	//{
-	//	auto max = 0.0;
+	//	double max = 0.0;
 	//	for (int i = 0; i < this->size(); i++)
 	//	{
-	//		auto element = this->at(i)->maxMagnitude();
+	//		double element = this->at(i)->maxMagnitude();
 	//		if (max < element) max = element;
 	//	}
 	//	return max;

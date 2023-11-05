@@ -12,11 +12,13 @@
 #include "SphericalJoint.h"
 
 namespace MbD {
-    class ASMTSphericalJoint : public ASMTJoint
+    class EXPORT ASMTSphericalJoint : public ASMTJoint
     {
         //
     public:
-        virtual std::shared_ptr<Joint> mbdClassNew() override;
+        std::shared_ptr<Joint> mbdClassNew() override;
+        void storeOnLevel(std::ofstream& os, int level) override;
+        void storeOnTimeSeries(std::ofstream& os) override;
 
     };
 }

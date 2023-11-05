@@ -5,12 +5,14 @@
  *                                                                         *
  *   See LICENSE file for details about copyright.                         *
  ***************************************************************************/
- 
+
 #pragma once
+#include "MBDynItem.h"
 
 namespace MbD {
-	class Math
+	class MBDynBlock : public MBDynItem
 	{
+	public:
+
 	};
 }
-

@@ -15,14 +15,18 @@ namespace MbD {
     class System;
     class Units;
 
-    class ASMTConstantGravity : public ASMTItem
+    class EXPORT ASMTConstantGravity : public ASMTItem
     {
         //
     public:
         void parseASMT(std::vector<std::string>& lines) override;
         void createMbD(std::shared_ptr<System> mbdSys, std::shared_ptr<Units> mbdUnits) override;
+        void setg(FColDsptr g);
 
-        FColDsptr g;
+        void setg(double a, double b, double c);
+        void storeOnLevel(std::ofstream& os, int level) override;
+
+        FColDsptr g = std::make_shared<FullColumn<double>>(ListD{ 0.,0.,0. });
     };
 }
 

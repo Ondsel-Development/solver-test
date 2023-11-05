@@ -11,11 +11,12 @@
 #include "ASMTRefItem.h"
 
 namespace MbD {
-    class ASMTRefSurface : public ASMTRefItem
+    class EXPORT ASMTRefSurface : public ASMTRefItem
     {
         //
     public:
         void parseASMT(std::vector<std::string>& lines) override;
+        void storeOnLevel(std::ofstream& os, int level) override;
 
 
     };

@@ -10,8 +10,12 @@
 
 #include <string>
 #include <vector>
-
+#include "FullColumn.ref.h"
+#include "FullRow.ref.h"
+#include "DiagonalMatrix.ref.h"
+#include "FullMatrix.ref.h"
 #include "FullColumn.h"
+#include "FullRow.h"
 #include "FullMatrix.h"
 #include "DiagonalMatrix.h"
 #include "SparseMatrix.h"
@@ -29,6 +33,7 @@ namespace MbD {
 		Item();
 		Item(const char* str);
 		virtual System* root();
+		void noop();
 
 		virtual void calcPostDynCorrectorIteration();
 		virtual void checkForCollisionDiscontinuityBetweenand(double impulsePrevious, double impulse);
@@ -150,13 +155,14 @@ namespace MbD {
 		virtual std::ostream& printOn(std::ostream& s) const;
 		friend std::ostream& operator<<(std::ostream& s, const Item& item)
 		{
-			if (&item) {
+            // the following if cannot be false
+//			if (&item) {
 				return item.printOn(s);
-			}
-			else {
-				s << "NULL";
-			}
-			return s;
+//			}
+//			else {
+//				s << "NULL";
+//			}
+			//return s;
 		}
 
 		std::string name;

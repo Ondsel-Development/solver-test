@@ -12,12 +12,13 @@
 #include "CylindricalJoint.h"
 
 namespace MbD {
-    class ASMTCylindricalJoint : public ASMTJoint
+    class EXPORT ASMTCylindricalJoint : public ASMTJoint
     {
         //
     public:
         std::shared_ptr<Joint> mbdClassNew() override;
-
+        void storeOnLevel(std::ofstream& os, int level) override;
+        void storeOnTimeSeries(std::ofstream& os) override;
 
     };
 }

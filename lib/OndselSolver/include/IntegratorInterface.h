@@ -20,7 +20,7 @@ namespace MbD {
     public:
 
         void initializeGlobally() override;
-        virtual void preRun() = 0;
+        virtual void preRun() override = 0;
         virtual void checkForDiscontinuity() = 0;
         
         void setSystem(Solver* sys) override;
@@ -36,7 +36,7 @@ namespace MbD {
         virtual void interpolateAt(double t);
 
         SystemSolver* system;
-        double tout = 0, hout = 0, hmin = 0, hmax = 0, tstart = 0, tend = 0;
+        double tout = 0.0, hout = 0.0, hmin = 0.0, hmax = 0.0, tstart = 0.0, tend = 0.0;
         std::shared_ptr<BasicQuasiIntegrator> integrator;
     };
 }

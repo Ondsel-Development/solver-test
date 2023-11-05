@@ -12,11 +12,13 @@
 #include "TranslationalJoint.h"
 
 namespace MbD {
-    class ASMTTranslationalJoint : public ASMTJoint
+    class EXPORT ASMTTranslationalJoint : public ASMTJoint
     {
         //
     public:
         std::shared_ptr<Joint> mbdClassNew() override;
+        void storeOnLevel(std::ofstream& os, int level) override;
+        void storeOnTimeSeries(std::ofstream& os) override;
 
 
     };
